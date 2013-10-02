@@ -1,0 +1,123 @@
+body { 
+    background-color: #e8eccb;
+}
+
+#header {
+    margin-bottom : 1.5em;
+}
+
+
+h1 {
+    font-size: 1.6em
+}
+
+
+#menubar {
+    float: left;
+    width: 182px;
+    padding-left: 52px;
+	
+}
+
+
+.docpage{
+    background: #FFF url(../img/bg_sidebar.png) 0 0 repeat-y;
+}
+.docpage-wrapper{
+    clear: both;
+    position: relative;
+    overflow: hidden;
+    font-family: "CabinRegular", Tahoma, sans-serif;
+    color: #333;
+}
+.docpage-wrapper a{
+    color: #0066cc;
+}
+.docpage-wrapper #mainpage ol,
+.docpage-wrapper #mainpage ul{
+    margin: 5px 0 5px 25px;
+}
+
+
+.back-btn{
+    display: inline-block;
+    height: 17px;
+    line-height: 17px;
+    padding-left: 23px;
+    text-decoration: underline;
+    background: url(../img/btn_back.png) 0 0 no-repeat;
+}
+.back-btn:hover{
+    text-decoration: none;
+}
+.docpage-wrapper h1{
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.docpage-wrapper p{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.sidemenu {
+    margin: 3px 0 0 -10px;
+    background: url(../img/divider_horizontal.png) bottom center no-repeat;
+}
+
+.sidemenu li {
+    list-style-type: none;
+    padding: 4px 0 4px 12px;
+}
+.sidemenu ul {
+    padding-left: 2em;
+    font-size: 0.9em
+}
+.sidemenu > li{
+    background: url(../img/divider_horizontal.png) -3px top no-repeat;
+}
+.sidemenu > li:first-child{
+    background: none;
+}
+.sidemenu ul li{
+    padding: 1px 0 2px 0;
+}
+
+
+#mainpage {
+    float: left;
+    max-width: 700px;
+    padding-left: 21px;
+}
+
+
+#footer {
+    font-size: 0.6em;
+    margin-top: 10px;
+    padding-top: 5px;
+    border-top-style: solid;
+    border-width: 1px;
+    border-color: #1c2510
+}
+
+.dropdown ul {
+    left : 0
+}
+
+.responsive-menu {display:block;padding-lefT:15px; background: url(../img/open_arrow.png) 0 5px no-repeat; color:#333;font-size:14px;margin-left:10px; margin-top:7px; display:none;}
+@media screen and (max-width: 955px){
+.responsive-menu {display:block;}
+.docpage {background-image:none;} 
+#menubar{float:none; position:absolute; bottom:0px; width:100%; height:35px; background-color:#eaeaea; padding-lefT:0px;}
+#menubar.active {height:auto;}
+#menubar.active  .responsive-menu {background:url(../img/close_arrow.png) 0 5px no-repeat;margin-bottom:12px;}
+.sidemenu {display:none;} 
+#menubar.active .sidemenu {margin-left:15px;display:block;} 
+#menubar.active  .sidemenu > li{background: url(../img/responsive_divider.png) 0 0 no-repeat;} 
+.menu.back-btn {position:absolute; bottom:12px; right:10px;}
+#mainpage{padding-bottom:35px;}
+}
+
+

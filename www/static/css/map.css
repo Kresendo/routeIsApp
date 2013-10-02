@@ -1,0 +1,141 @@
+body { 
+    overflow: hidden;
+}
+
+/************************    Header     ****************************/
+
+#map_maplinks {
+    position: absolute;
+    top: 12px;
+    right: 4px
+}
+
+/******************************    Map    *************************/
+
+/* adapt the controls */
+.mapSwitch {
+    position: absolute;
+    top: 110px;
+    right: 0px
+}
+
+#switcherWindow {
+    background-color: navy;
+    color: white;
+    padding: 6px;
+    padding-bottom: 15px
+}
+
+#switcherWindow p {
+    margin: 16px 0 0 0;
+}
+
+#switcherClose {
+    position: absolute;
+    right: 2px;
+    top: 2px
+}
+
+.sliderbg { 
+   position:relative;
+   margin: 0;
+   padding-left: 5px;
+   height:28px;
+   width:215px;
+}
+
+.sliderthumb {
+    top: 8px;
+    left: 0;
+    position: absolute;
+}
+
+.olMap .OsgendeRouteMapPermalink {
+    top: 75px;
+    right: 25px;
+    display: none;
+}
+.olMap .OsgendeRouteMapPermalink a{
+    color: #2a6cb7;
+}
+
+.olMap .OsgendeRouteMapMousePosition {
+    bottom: 2.0em;
+    left: 2px;
+    font-size: 0.8em
+}
+
+.olMap .olControlLayerSwitcher {
+    top: 90px
+}
+
+.olMap .olControlPanZoomBar {
+    margin-top: 130px;
+    margin-left: 43px;
+}
+
+.olMap .olControlScaleLine {
+    bottom: 53px;
+    font-size: 0.6em;
+}
+
+/*********************** Stylizing zoombar controls ****************************/
+/* we need to use !important to overlap styles in style="" 
+*  attribute that are generating by javascript
+*/
+.zoomIn,
+.zoomInImg,
+.zoomOut,
+.zoomOutImg{
+    width: 28px !important;
+    height: 28px !important;
+    background-repeat: no-repeat !important;
+}
+.zoomOut{
+    top: 207px !important;
+}
+.zoomBar,
+.zoomSlider,
+.zoomSliderImg{
+    width: 28px !important;
+    background-repeat: no-repeat !important;
+}
+.zoomBar{
+    height: 175px !important;
+    top: 32px !important;
+    left: 5px !important;
+    background-position: 0 -1px !important;
+}
+.zoomSlider{
+    margin-top: 9px !important;
+    height: 13px !important;
+    left: 4px !important;
+}
+.mobile-zoombar .zoomBar,
+.mobile-zoombar .zoomSlider{
+    display: none !important;
+}
+.mobile-zoombar .zoomOut{
+    top: 31px !important;
+}
+
+
+
+/*********************** language chooser ****************************/
+
+.dropdown ul {
+    left : 0;
+    top: 22px;
+}
+
+
+/***************************   Footer   ******************************/
+
+#map_footer {
+    font-weight: bold;
+}
+
+#map_footer #searchform p {
+    margin: 0;
+    padding: 0;
+}

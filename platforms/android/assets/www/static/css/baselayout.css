@@ -1,0 +1,727 @@
+/***** resetting global css *****/
+
+/***** resetting global css *****/
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, em, img, strong, sub, sup, b, u, i,  dl, dt, dd, ol, ul, li, fieldset, form, label, table, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-size: 100%;
+}
+
+ul {    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    vertical-align: baseline;
+    background: transparent;
+    font-size: 100%;
+}
+
+
+#map_header, #header {
+    direction: ltr;
+} 
+
+
+/***** gloabal settings *****/
+
+@font-face {
+    font-family: 'CabinRegular';
+    src: url('../fonts/Cabin-Regular-webfont.eot');
+    src: url('../fonts/Cabin-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Cabin-Regular-webfont.woff') format('woff'),
+         url('../fonts/Cabin-Regular-webfont.ttf') format('truetype'),
+         url('../fonts/Cabin-Regular-webfont.svg#CabinRegular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+body {
+    height: 100%;
+    line-height: 1;
+    background: #fff;
+    color: #000;
+    text-align: left;
+    font: 14px Arial, "Helvetica CY", "Nimbus Sans L", sans-serif;
+}
+
+
+body.mapbody {
+overflow: hidden
+}
+
+a img {
+    border: 0 none
+}
+
+:link, :visited {
+    text-decoration: none;
+    color: #00A
+}
+
+a:hover {
+    text-decoration: underline
+}
+
+.invisible {
+    visibility: hidden;
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    margin: 0;
+    padding: 0
+}
+
+.absright {
+    position: absolute;
+    right: 3px;
+    top: 0
+}
+
+#fullpage {
+    text-shadow: none
+}
+
+/***** General Header ******/
+
+
+.headline {
+    background-repeat: no-repeat;
+    background-position: right top;    
+    position: relative;
+    left: 0px;
+    width: 100%;
+    top: 0px;
+    height: 55px;
+    margin: 0px;
+    padding: 0px
+}
+
+.logo{
+    float: left;
+    margin: 0 0 0 47px;
+    width: 117px;
+    height: 92px;
+    background: url(../img/logo.png) 0 0 no-repeat;
+}
+
+.subheadline {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    border-color: #1c2510;
+    border-bottom-style: solid;
+    text-align: left;
+    text-indent: 3px
+}
+
+/***** General Footer *****/
+
+.footline {
+    position: fixed;
+    left: 0px;
+    width: 100%;
+    bottom: 0px;
+    height: 39px;
+    padding: 0px 2px;
+    margin: 0px;
+    border-color: #1c2510;
+    border-width: 0px;
+    border-top-style: solid;
+    overflow: hidden;
+    text-align: left
+}
+
+#searchform{
+    float: left;
+    width: 240px;
+    height: 31px;
+    margin: 10px 0 0 52px;
+    background: url(../img/bg_searchfield.png) 0 0 no-repeat;
+}
+.searchterminput{
+    float: left;
+    width: 185px;
+    height: 14px;
+    margin: 9px 0 0 11px;
+    border: none;
+    background: transparent;
+    color: #808080;
+    font: 12px/14px Arial, Helvetica, sans-serif;
+}
+.searchbutton{
+    float: right;
+    width: 26px;
+    height: 27px;
+    padding: 0;
+    margin: 2px 3px 0 0;
+    border: none;
+    background: url(../img/btn_search.png) 0 0 no-repeat;
+}
+.searchbutton:hover{
+    background-position: 0 -28px;
+}
+.searchbutton:focus{
+    background-position: 0 -56px;
+}
+.footer_menu{
+    float: right;
+}
+.footer_menu li{
+    float: left;
+    height: 42px;
+    padding-top: 10px;
+    color: #ccc;
+    font-family: "CabinRegular", Tahoma, sans-serif;
+    font-size: 12px;
+    font-weight: normal;
+    list-style: none;
+    background: url(../img/divider.png) 0 0 no-repeat;
+}
+.footer_menu li a{
+    color: #ccc;
+}
+li.f_menu_about{
+    font-size: 14px;
+    width: 135px;
+    text-align: center;
+}
+.f_menu_update{
+    width: 190px;
+    padding: 2px 10px 0;
+}
+.f_menu_info{
+    width: 310px;
+    padding: 2px 10px 0;
+}
+
+
+/********************** Hovering Drop-Down Box ***********************/
+
+#langchooser {
+    float: left;
+    margin: 18px 0 0 23px;
+    height: 22px;
+    width: 88px;
+    background: url(../img/bg_lang.png) 0 0 no-repeat;
+}
+
+#npplogo {
+    float: right;
+    margin: 6px 0 0 0px;
+    height: 45px;
+    width: 270px;
+    background: url(../img/npp_large.png) 0 0 no-repeat;
+}
+
+
+#tg4nplogo {
+    float: right;
+    margin: 6px 0 0 0px;
+    height: 45px;
+    width: 58px;
+    background: url(../img/tg4np.png) 0 0 no-repeat;
+}
+
+.dropdown {
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+    vertical-align: super;
+    font-size: 12px;
+    font-weight: bold;
+    z-index: 10
+
+}
+.dropdown .ddtitle {
+    width: 53px;
+    float: left;
+    padding-right: 34px;
+    color: #ccc;
+    font-size: 14px;
+    line-height: 22px;
+    text-align: center;
+    text-transform: lowercase;
+    font-weight: normal;
+    cursor: pointer;
+}
+.dropdown:hover .ddtitle {
+    color: #fff;
+}
+.dropdown ul {
+    display: none;
+    position: absolute;
+    padding: 0;
+    top: 5px;
+    width: 14em;
+    background-color: #fff;
+    border: 1px solid #1d3053;
+    max-height: 28em;
+    overflow-y: scroll;
+}
+.dropdown ul li {
+    display: block;
+    padding: .25ex .5em;
+    color: #999;
+    text-align: left;
+    font-weight: bold;
+    font-size: 12px;
+}
+.dropdown ul li a {
+    display: block;
+    color: #1d3053;
+    text-decoration: none;
+}
+.dropdown ul li a:hover {
+    color: #fff;
+    background-color: #549215;
+
+}
+
+
+/******* Main map *******/
+
+#map {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding : 0;
+    margin : 0
+}
+
+.olImageLoadError {
+    display : none
+}
+
+.olMap .OsgendeRouteMapPermalink {
+    background-color: rgba(255,255,255,0.75)
+}
+
+.OsgendeRouteMapPermalink :link, .OsgendeRouteMapPermalink :visited {
+    color: #2C64AC
+}
+
+
+#toolbar, #prefbar {
+    position:fixed;
+    margin: 0px;
+    list-style: none
+}
+
+#toolbar :link, #toolbar :visited {
+    color: #FFF
+}
+
+#toolbar li {
+    padding: 2px;
+}
+
+
+/******* Map sidebar ******/
+
+#sidebar {
+    overflow: auto;
+    position: absolute;
+    background-color: #ecece9;
+    margin: 0px;
+    padding: 0px;
+}
+
+#sidebar-header {
+    height:34px;
+    margin-left:1px
+}
+
+#sidebar.minimized {
+    height: 0px
+}
+
+#sidebar.minimized #sidebar-content {
+    display: none
+}
+
+#sidebar-header #sbtitle {
+    margin: .4em 45px .8em
+}
+
+#sidebar-header.minimized #sbtitle {
+    margin: .4em 56px .8em 1px
+}
+
+#sidebar-header {
+    position:fixed
+}
+
+/* close button */
+#sbsmall {
+    right:30px
+}
+
+/* Routecontent */
+.sbcontent {
+    font-size: 0.8em;
+    margin:3px
+}
+
+.sbcontent h1 {
+    margin-top: 0.4em;
+    margin-bottom: 0.2em;
+    font-size: 1.5em
+}
+
+.sbcontent .subtitle {
+    font-size: 0.75em
+}
+
+.sbcontent h2 {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    background-color: #dde
+}
+
+.sbcontent .iconlist {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    height: 1.5em
+}
+
+.iconlist .ui-btn {
+    margin-right : 4px !important
+}
+
+.iconlist .ui-btn-inner {
+    display : inline !important
+}
+
+.sbcontent .backlink {
+    font-size: 0.75em;
+    text-align: left
+}
+
+.sbcontent .routedescr {
+    margin-bottom: 0.2em;
+    font-size: 0.9em
+}
+.sbcontent .routenote {
+    margin-bottom: 0.2em;
+    font-size: 0.8em
+}
+
+.sbcontent table {
+    font-size: 1em
+}
+
+.sbloading {
+    font-style: oblique
+}
+
+.dllist {
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    margin-left: 0.3em;
+    line-height: 150%
+}
+
+.dlitem {
+    font-weight: bold;
+    padding-right: 1ex
+}
+
+.dllink {
+    padding-right: 1ex
+}
+
+/* route list */
+
+.routelist {
+    border-spacing: 0
+}
+
+.routelist .routesym {
+    text-align: center;
+    width: 40px
+}
+
+.routelist th {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.1em;
+    background-color: #dde
+}
+
+.routelist .routelistspacer {
+    font-style: italic;
+    font-size: 1.1em;
+    margin-top: 0.3em;
+    margin-bottom: 0.1em;
+    opacity:0;
+    width: 5px;
+}
+
+.routelist a:hover {
+    text-decoration: none;
+    background-color: #a4a4b4
+}
+
+.routelist tr:hover {
+    background-color: #a4a4b4
+}
+
+.routelist td {
+    padding-left: 3px
+}
+
+.route-info-toolbar li {
+    float:left
+}
+
+#routeinfocontent h2 .ui-icon {
+    position: absolute
+}
+
+#routeinfocontent h2 .title-text {
+    margin-left: 20px
+}
+
+.section-hidden {
+    color: #ccc
+}
+
+.section-hidden .ui-icon {
+    display: none
+}
+
+/* settings part */
+#mapsliders {
+    display:table
+}
+
+#mapsliders .slider {
+    display:table-row
+}
+
+#mapsliders .slider-slider, #mapsliders .slider-label {
+    display:table-cell;
+    vertical-align:middle;
+    padding: 0px 5px
+}
+
+.sliderbg { 
+   position:relative;
+   margin: 0;
+   padding-left: 5px;
+   height:28px;
+   width:215px;
+}
+
+.sliderthumb {
+    top: 8px;
+    left: 0;
+    position: absolute;
+}
+
+#select-lang {
+    width: 100%;
+    padding: 3px
+}
+
+#routeselector {
+    position: absolute;
+    bottom: 60px;
+    right: 27px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: "CabinRegular";
+    text-align: center;
+    background: url(../img/icon_routes.png) 0 0 no-repeat;
+}
+
+#routeselector a{
+    display: block;
+    padding-top: 30px;
+    color: #fff;
+}
+
+#geolocation {
+    position: absolute;
+    bottom: 60px;
+    right: 87px;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    font-size: 14px;
+    font-family: "CabinRegular";
+    text-align: center;
+    background: url(../img/icon_geolocate.png) 0 0 no-repeat;
+    background-size:50px 50px;
+}
+
+#geolocation a{
+    display: block;
+    padding-top: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+/**** elevation profile *****/
+
+#elevationProfileLoader {
+    display: none;
+    margin: 30px;
+}
+
+#elevationProfile {
+    display: none;
+    margin: 15px;
+    width: 300px;
+    height: 200px;
+}
+
+#elevationProfileErrorText {
+    display: none;
+    margin: 15px;
+}
+
+/* stylesheets for parts in reStructured Text */
+
+.docpage-body #langchooser {
+    display: none
+}
+
+.docpage h3 {
+    font-size: 1em;
+}
+
+.docpage h2 {
+    font-size: 1.1em;
+}
+
+.docpage h1 {
+    font-size: 130%;
+}
+
+.docpage pre {
+    background-color: #EEE;
+    border-style: solid;
+    border-width: 1px;
+    padding: 4px;
+    border-color: #AAA;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/***** doc page style ****/
+
+.sidemenu {
+    padding : 0.5em;
+    margin: 0
+}
+
+.sidemenu li {
+    list-style-type: none;
+    padding: 1px 0px
+}
+.sidemenu ul {
+    padding-left: 2em;
+    font-size: 0.9em
+}
+
+@media screen and (max-width: 480px){
+    #langchooser {float:right; margin-right:10px;}
+    #searchform {margin-left:10px;}
+    #routeselector {background: url("../img/icon_routes_m.png") no-repeat scroll 0 0 transparent; bottom:0px; right:10px;}
+    #geolocation {right: 10px;}
+    .footer_menu {display:none;}
+}
+@media screen and (max-width: 980px){
+    .f_menu_about{
+        display: none;
+    }
+}
+@media screen and (max-width: 840px){
+    .f_menu_update{
+        display: none;
+    }
+}
+@media screen and (max-width: 640px){
+    .f_menu_info{
+        display: none;
+    }
+}
+
+
+/************************   warning upon first loading    ******************************/
+
+#dataWarning {
+    display: none;
+}
+
+#facybox {
+  position: absolute;
+  width: 95%;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  text-align: left;
+  margin-top: 0px;
+}
+
+
+/************************   Mobile warning    ******************************/
+
+.button {
+	font: bold 13px "Helvetica Neue", Helvetica, Arial, clean, sans-serif !important;
+	text-shadow: 0 -1px 1px rgba(0,0,0,0.25), -2px 0 1px rgba(0,0,0,0.25);
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	-webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.5);
+	display: inline-block;
+	color: white !important;
+	padding: 5px 10px 5px;
+	white-space: nowrap;
+	text-decoration: none !important;
+	cursor: pointer;
+	background: #508e19 url(../img/button_overlay.png) repeat-x scroll 0 0;
+	border-style: none;
+	text-align: center;
+	overflow: visible;
+}
+ 
+.button:hover,
+.button:focus {
+	background-position: 0 -50px;
+	color: white;
+}
+ 
+.button:active {
+	background-position: 0 -100px;
+	-moz-box-shadow: inset 0 1px 2px rgba(0,0,0,0.7);
+	-webkit-box-shadow: none;
+}
+
+#trymaplink {
+    margin-left:  10px;
+}
+
+#buttonArea {
+    text-align: center;
+    margin-top: 20px;
+}
+
