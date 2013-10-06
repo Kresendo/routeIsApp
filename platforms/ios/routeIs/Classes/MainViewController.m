@@ -129,6 +129,27 @@
 }
 */
 
+
+/* FORCE LINKS TO OPEN IN SAFARI */
+- (BOOL)webView:(UIWebView *)theWebView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
+{
+    NSURL *url = [request URL];
+    // add any other schemes you want to support, or perform additional
+    // tests on the url before deciding what to do -jm
+    if( [[url scheme] isEqualToString:@"http"] ||
+       [[url scheme] isEqualToString:@"https"])
+    {
+        [[UIApplication sharedApplication] openURL:url];
+        return NO;
+    }
+    else
+    {
+        return [ super webView:theWebView shouldStartLoadWithRequest:request navigationType:navigationType ];
+    }
+ 
+}
+
+
 @end
 
 @implementation MainCommandDelegate
