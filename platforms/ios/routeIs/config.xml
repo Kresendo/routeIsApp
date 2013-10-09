@@ -11,7 +11,13 @@
     <feature name="LocalStorage">
         <param name="ios-package" value="CDVLocalStorage" />
     </feature>
-    <access origin="*" />
+    <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <access origin="http://s.route.is/*" />
+    <access origin="http://test.route.is/*" />
+    <access origin="http://opencache.statkart.no/*" />
+    <access origin="http://tile.waymarkedtrails.org/*" />
     <preference name="KeyboardDisplayRequiresUserAction" value="true" />
     <preference name="SuppressesIncrementalRendering" value="false" />
     <preference name="UIWebViewBounce" value="true" />
