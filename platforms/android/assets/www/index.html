@@ -304,7 +304,7 @@
                     <div id="map_right_footer" class="absright">
                         <ul class="footer_menu">
                             <li class="f_menu_about">
-                                <a href="javascript:(void)" class='link' rel='http://test.route.is/nb/help/about' >About this map</a>
+                                <a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_system');">About this map</a>
                             </li>
                             <li class="f_menu_update">
                                 Last update: Oct. 1, 2013, 7:15 p.m.
@@ -554,15 +554,73 @@
                 
                 OpenLayers.ImgPath = "http://s.route.is/contrib/openlayers/img/";
 
-                  $('.link').live('tap', function() {
-                      url = $(this).attr("rel");   
-                      loadURL(url);
-                  });
 
-                  function loadURL(url){
-                      navigator.app.loadUrl(url, { openExternal:true });
-                      return false;
-                  } 
+               
+                oldShowRouteInfo = showRouteInfo;
+                showRouteInfo = function(osmid, backfunc) {
+                    $("#sidebar-header .infobtn").removeClass("invisible");
+                    $('#routeloader').removeClass('invisible');
+                    $('#sb-routes .route-content').addClass('invisible');
+                    $('#sbback').off();
+                    $('#sbback').click(backfunc);
+                    routeviewcounter++;
+                    var sid = routeviewcounter;
+                    $.get(Osgende.MapConfig.routeinfo_baseurl + osmid + '/info',
+                        function (data) {
+                            if (routeviewcounter == sid) {
+                                $('#routeloader').addClass('invisible');
+                                var div = jQuery("<div>").append(data);
+                                $('#empty-title').html(div.find('.route-info-header').html());
+                                $('#empty-title').removeClass('invisible');
+                                $('#routeinfocontent').html(div.find('.route-info-content'));
+                                
+                                // Reset header to name of relation
+                                var tmp = $('.route-info-title').html();
+                                $('#empty-title').html(tmp);
+
+                                
+
+                                // manipulate headers to make them closable
+                                $('#routeinfocontent h2').each(function (idx) {
+                                    var oldcontent = $(this).html();
+                                    $(this).html('<span class="ui-icon ui-icon-alt"></span><span class="title-text">'+ oldcontent + '</span>');
+                                    if ($(this).hasClass('section-closed')) {
+                                        $('.ui-icon', this).addClass('ui-icon-arrow-r');
+                                        $(this).next().addClass('invisible');
+                                    } else {
+                                        $('.ui-icon', this).addClass('ui-icon-arrow-d');
+                                    }
+                                    $(this).click(routeInfoToggleSection);
+                                });
+                                $('#routeinfocontent').removeClass("invisible");
+                                // Only if elevation profile is turned on
+                                if (typeof createElevationProfile === 'function') {
+                                    createElevationProfile(osmid); 
+                                }
+                                routeLayer.removeAllFeatures();
+                                var styleloader = new OpenLayers.Protocol.HTTP({
+                                        url: Osgende.MapConfig.routeinfo_baseurl + osmid + '/json',
+                                        format: new OpenLayers.Format.GeoJSON(),
+                                        callback: function (response) {
+                                            routeLayer.style = routeLayer.styleMap.styles.single.defaultStyle;
+                                            routeLayer.addFeatures(response.features);
+                                            Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent());
+
+                                            // CHANGE HREF DUE TO APP
+                                            $("[title='Sentrer kartet på ruta']").attr("href", "javascript:void(0)");
+                                            $("[title='Sentrer kartet på ruta']").attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
+                                            // CHANGE HREF DUE TO APP
+                                            $("[title='Last ned GPX-fil']").attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
+                                            alert("hei");
+                                            alert($("[title='Last ned GPX-fil']").attr("href"));
+                                          },
+                                        scope: this
+                                        });
+                                styleloader.read();
+                            }
+                        });
+                    }
+
 
             </script>
         </body>
