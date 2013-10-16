@@ -518,19 +518,17 @@
             
             <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
             <!--[if IE]><script language="javascript" type="text/javascript" src="static/contrib/excanvas.min.js"></script><![endif]-->
-            
 
-            
                 
-                  <script type="text/javascript" src="static/js/Map.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Sidebar.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Routes.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Search.js"></script>
-                
-                  <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
+            <script type="text/javascript" src="static/js/Map.js"></script>
+
+            <script type="text/javascript" src="static/js/Sidebar.js"></script>
+
+            <script type="text/javascript" src="static/js/Routes.js"></script>
+
+            <script type="text/javascript" src="static/js/Search.js"></script>
+
+            <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
                 
             
 
@@ -571,29 +569,28 @@
                             if (routeviewcounter == sid) {
                                 $('#routeloader').addClass('invisible');
 
-                                // CHANGE HREFS DUE TO APP
+                                 // CHANGE HREFS DUE TO APP
                                 var externalHTML = $.parseHTML(data);
-
-                                //var zoomLink = $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
-                                //$("[title='Sentrer kartet på ruta']").attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
-                                //externalHTML = s.replace(zoomLink, "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
-
-                                var GPXlink = $('#gpx-download', externalHTML).attr("href");
-                                externalHTML = s.replace(link, "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
-
+                                $('#gpx-download', externalHTML).attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
+                                $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
+                                $('#zoom-link', externalHTML).attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
+                                data = externalHTML;
                                 // DONE: CHANGE HREFS DUE TO APP
 
-                                var div = jQuery("<div>").append(externalHTML);
+                                var div = jQuery("<div>").append(data);
+
+
                                 $('#empty-title').html(div.find('.route-info-header').html());
                                 $('#empty-title').removeClass('invisible');
+
+
+
                                 $('#routeinfocontent').html(div.find('.route-info-content'));
                                 
                                 // Reset header to name of relation
                                 var tmp = $('.route-info-title').html();
                                 $('#empty-title').html(tmp);
-
                                 
-
                                 // manipulate headers to make them closable
                                 $('#routeinfocontent h2').each(function (idx) {
                                     var oldcontent = $(this).html();
@@ -619,7 +616,6 @@
                                             routeLayer.style = routeLayer.styleMap.styles.single.defaultStyle;
                                             routeLayer.addFeatures(response.features);
                                             Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent());
-
                                           },
                                         scope: this
                                         });
