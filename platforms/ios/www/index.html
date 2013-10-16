@@ -51,8 +51,6 @@
         <link rel="stylesheet" type="text/css" href="static/contrib/jquery.mobile-1.2.0.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/jqm-icon-pack-4b216e9.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/openlayers/css/default/style.css" />
-        
-        <script src="http://debug.phonegap.com/target/target-script-min.js#espen"></script>
 
 
     </head>
@@ -382,17 +380,17 @@
             <div id="mapsliders">
              <div class="slider"><div class="slider-label">Base map</div>
                <div class="slider-slider">
-                <div id="basebg" class="sliderbg" tabindex="90"><img class="sliderbgimg" src="http://s.route.is/img/bg-fader.gif" alt="" /><div id="basethumb" class="sliderthumb"><img src="http://s.route.is/img/thumb-n.gif" alt="|" /></div></div>
+                <div id="basebg" class="sliderbg" tabindex="90"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="basethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
               </div>
              </div>
             <div class="slider"><div class="slider-label">Route layer</div>
                <div class="slider-slider">
-              <div id="routebg" class="sliderbg" tabindex="91"><img class="sliderbgimg" src="http://s.route.is/img/bg-fader.gif" alt="" /><div id="routethumb" class="sliderthumb"><img src="http://s.route.is/img/thumb-n.gif" alt="|" /></div></div>
+              <div id="routebg" class="sliderbg" tabindex="91"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="routethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
               </div>
             </div>
             <div class="slider"><div class="slider-label">Hill shading</div>
                <div class="slider-slider">
-              <div id="hillbg" class="sliderbg" tabindex="92"><img class="sliderbgimg" src="http://s.route.is/img/bg-fader.gif" alt="" /><div id="hillthumb" class="sliderthumb"><img src="http://s.route.is/img/thumb-n.gif" alt="|" /></div></div>
+              <div id="hillbg" class="sliderbg" tabindex="92"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="hillthumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
               </div>
             </div>
             </div>
@@ -520,19 +518,17 @@
             
             <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
             <!--[if IE]><script language="javascript" type="text/javascript" src="static/contrib/excanvas.min.js"></script><![endif]-->
-            
 
-            
                 
-                  <script type="text/javascript" src="static/js/Map.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Sidebar.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Routes.js"></script>
-                
-                  <script type="text/javascript" src="static/js/Search.js"></script>
-                
-                  <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
+            <script type="text/javascript" src="static/js/Map.js"></script>
+
+            <script type="text/javascript" src="static/js/Sidebar.js"></script>
+
+            <script type="text/javascript" src="static/js/Routes.js"></script>
+
+            <script type="text/javascript" src="static/js/Search.js"></script>
+
+            <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
                 
             
 
@@ -558,6 +554,7 @@
 
 
                
+                
                 oldShowRouteInfo = showRouteInfo;
                 showRouteInfo = function(osmid, backfunc) {
                     $("#sidebar-header .infobtn").removeClass("invisible");
@@ -571,17 +568,29 @@
                         function (data) {
                             if (routeviewcounter == sid) {
                                 $('#routeloader').addClass('invisible');
+
+                                 // CHANGE HREFS DUE TO APP
+                                var externalHTML = $.parseHTML(data);
+                                $('#gpx-download', externalHTML).attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
+                                $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
+                                $('#zoom-link', externalHTML).attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
+                                data = externalHTML;
+                                // DONE: CHANGE HREFS DUE TO APP
+
                                 var div = jQuery("<div>").append(data);
+
+
                                 $('#empty-title').html(div.find('.route-info-header').html());
                                 $('#empty-title').removeClass('invisible');
+
+
+
                                 $('#routeinfocontent').html(div.find('.route-info-content'));
                                 
                                 // Reset header to name of relation
                                 var tmp = $('.route-info-title').html();
                                 $('#empty-title').html(tmp);
-
                                 
-
                                 // manipulate headers to make them closable
                                 $('#routeinfocontent h2').each(function (idx) {
                                     var oldcontent = $(this).html();
@@ -607,14 +616,6 @@
                                             routeLayer.style = routeLayer.styleMap.styles.single.defaultStyle;
                                             routeLayer.addFeatures(response.features);
                                             Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent());
-
-                                            // CHANGE HREF DUE TO APP
-                                            $("[title='Sentrer kartet på ruta']").attr("href", "javascript:void(0)");
-                                            $("[title='Sentrer kartet på ruta']").attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
-                                            // CHANGE HREF DUE TO APP
-                                            $("[title='Last ned GPX-fil']").attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
-                                            alert("hei");
-                                            alert($("[title='Last ned GPX-fil']").attr("href"));
                                           },
                                         scope: this
                                         });
