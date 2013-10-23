@@ -21,8 +21,8 @@
     <head>
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!--meta name="viewport" content="width=500, initial-scale=1"-->
+        <!--meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" /-->
+        <meta name="viewport" content="width=700, initial-scale=1 user-scalable=no">
         <link rel="stylesheet" type="text/css" href="css/index.css" />
 
 
@@ -37,6 +37,7 @@
         <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
         
         <link rel="stylesheet" type="text/css" href="static/css/baselayout.css" />
+        <!--link rel="stylesheet" type="text/css" href="static/css/map_mobile.css" /-->
         
         <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="http://s.route.is/css/desktop-ie.css" /><![endif]-->
         <!--[if (gt IE 8)|(!IE)]-->
@@ -52,7 +53,6 @@
         <link rel="stylesheet" type="text/css" href="static/contrib/jqm-icon-pack-4b216e9.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/openlayers/css/default/style.css" />
 
-
     </head>
     
         <body class="mapbody">
@@ -61,7 +61,7 @@
             <div id="map" tabindex="0">JavaScript needs to be activated to use this service.</div>
             
             <div id="map_header" class="header headline">
-                <h1><a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_blank');" title="route.is" class="logo"></a></h1>
+                <h1><a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_system');" title="route.is" class="logo"></a></h1>
                 
 
 
@@ -512,8 +512,7 @@
             <script type="text/javascript" src="static/contrib/modernizr-120428.js"></script>
 
             
-                <script type="text/javascript" src="static/contrib/openlayers-130424.js"></script>
-            
+            <script type="text/javascript" src="static/contrib/openlayers-130424.js"></script>
             
             
             <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
@@ -554,7 +553,7 @@
 
 
                
-                
+                var gpxLink;
                 oldShowRouteInfo = showRouteInfo;
                 showRouteInfo = function(osmid, backfunc) {
                     $("#sidebar-header .infobtn").removeClass("invisible");
@@ -571,7 +570,9 @@
 
                                  // CHANGE HREFS DUE TO APP
                                 var externalHTML = $.parseHTML(data);
-                                $('#gpx-download', externalHTML).attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
+                                $('#gpx-download', externalHTML).attr("href", "javascript:void(0)");
+                                gpxLink = 'http://test.route.is/nb/routebrowser/' + osmid + '/gpx';
+                                $('#gpx-download', externalHTML).attr("onClick", "window.open(gpxLink, '_system', 'hidden=no')");
                                 $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
                                 $('#zoom-link', externalHTML).attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
                                 data = externalHTML;
@@ -626,5 +627,9 @@
 
 
             </script>
+
+            <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+
+
         </body>
 </html>
