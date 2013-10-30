@@ -91,7 +91,8 @@
 
         <div id="routeselector"><a class="sidebarsel" href="javascript:openRouteView()">Ruter</a></div>
 
-
+        <div id="geolocation"><a href="javascript:Osgende.RouteMap.geoLocateUser(false)"></a></div>
+        <div id="geolocationErrorMsg" style="display:none;">Klarer ikke å finne din posisjon!</div>
 
         <div id="sidebar-header" class="sidebar ui-header ui-bar-c ui-shadow invisible">
            <a id="sbback" class="ui-btn ui-btn-icon-notext ui-btn-up-c ui-btn-left infobtn" href="#"><span class="ui-btn-inner"><span class="ui-icon ui-icon-back ui-icon-shadow"></span></span></a>
@@ -194,7 +195,7 @@
     <script type="text/javascript" src="static/contrib/slider-min.js"></script>
     <script type="text/javascript" src="static/contrib/noty-4d8bc69.js"></script>
     <script type="text/javascript" src="static/contrib/modernizr-120428.js"></script>
-    <script type="text/javascript" src="static/contrib/openlayers-130424.js"></script>
+    <script type="text/javascript" src="static/contrib/openlayers-mobile-130424.js"></script>
     <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
     <script type="text/javascript" src="static/js/Map.js"></script>
     <script type="text/javascript" src="static/js/Sidebar.js"></script>
@@ -219,13 +220,80 @@
                 firstVisit : 1,
                 routemap_mediaurl : 'http://s.route.is',
                 tileurl : 'http://tile.waymarkedtrails.org/hiking',
-                
-                ismobile : false
+                //extent : 'new OpenLayers.Bounds(653201, 7743571, 3477376, 11216869)',
+                ismobile : true
             };
             
             OpenLayers.ImgPath = "http://s.route.is/contrib/openlayers/img/";
 
 
+            var geolocationWatchId;
+            /* OVERRIDE GEOLOCATION */
+            Osgende.Geolocator = function() {
+
+                var geolocateMap, doZoomAfterGeolocation, geoLocateLayer;
+
+                this.initialize = function(map) {
+                    // Was not able to use this.map=map
+                    geolocateMap = map;
+
+                    geoLocateLayer = new OpenLayers.Layer.Vector('vector');
+                    map.addLayer(geoLocateLayer);
+
+                    this.geoLocateUser = function(shouldZoom) {
+
+                        var options = { enableHighAccuracy: true , timeout: 7000, maximumAge: 0};
+
+                        // Need to wrap this in setTimeout to prevent alerts on iOS
+                        setTimeout( function() {
+                            var geolocationWatchId = navigator.geolocation.getCurrentPosition(Osgende.RouteMap.getGeolocator().locationFound, Osgende.RouteMap.getGeolocator().locationFailed, options);
+                        },1000);
+                        
+
+                        doZoomAfterGeolocation = shouldZoom;
+                        geoLocateLayer.removeAllFeatures();
+                    };
+                };
+
+                this.locationFound = function(position) {
+
+                    var projWGS84 = new OpenLayers.Projection("EPSG:4326");
+                    var proj900913 = new OpenLayers.Projection("EPSG:900913");
+                    var coordinate = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude);
+                    coordinate.transform(projWGS84, proj900913);
+
+                    geolocateMap.panTo(coordinate);
+                    geolocateMap.zoomTo(9);
+
+                    // Add marker to show location
+                    var marker = new OpenLayers.Feature.Vector(
+                        new OpenLayers.Geometry.Point(coordinate.lon, coordinate.lat),
+                        {},
+                        {   externalGraphic: Osgende.MapConfig.routemap_mediaurl + "/contrib/openlayers/img/marker-blue.png",
+                            graphicHeight: 25,
+                            graphicWidth: 21,
+                            graphicXOffset: -21/2,
+                            graphicYOffset: -25
+                         }
+                    );
+                    geoLocateLayer.addFeatures([
+                        marker
+                        ]);
+
+                    if (geolocateMap.getZoom() < 9) {
+                        geolocateMap.zoomTo(9); // Only zoom on when opening page
+                        Osgende.RouteMap.updateLocation(); // Call manually since this is done before event is set up
+                    }
+
+
+                };
+
+                this.locationFailed = function() {
+                    noty({text: $('#geolocationErrorMsg').text(), timeout: 3000, type: 'error'});
+                    navigator.geolocation.clearWatch(geolocationWatchId)
+                };
+
+            };
            
             var gpxLink;
             oldShowRouteInfo = showRouteInfo;
