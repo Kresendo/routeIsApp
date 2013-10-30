@@ -14,10 +14,18 @@
     <feature name="InAppBrowser">
         <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
     </feature>
+    <feature name="Geolocation">
+        <param name="android-package" value="org.apache.cordova.geolocation.GeoBroker" />
+    </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
     <access origin="http://s.route.is/*" />
     <access origin="http://test.route.is/*" />
     <access origin="http://opencache.statkart.no/*" />
     <access origin="http://tile.waymarkedtrails.org/*" />
+    <access origin="http://debug.phonegap.com/*" />
+    <access origin="http://nominatim.openstreetmap.org/*" />
     <preference name="useBrowserHistory" value="true" />
     <preference name="exit-on-suspend" value="false" />
     <preference name="fullscreen" value="true" />

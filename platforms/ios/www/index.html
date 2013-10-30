@@ -22,318 +22,79 @@
         <meta charset="utf-8" />
         <meta name="format-detection" content="telephone=no" />
         <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
-        <!--meta name="viewport" content="width=500, initial-scale=1"-->
-        <link rel="stylesheet" type="text/css" href="css/index.css" />
-
+        <!--meta name="viewport" content="width=700, initial-scale=1 user-scalable=no"-->
 
         <meta http-equiv="content-type" content="text/html; charset=utf-8" />
         <meta name="description" content="route.is shows hiking routes from the local to international level in Norway, with maps and information from OpenStreetMap." />
         <meta name="keywords" lang="en" content="Waymarked Trails, OpenStreetMap, hiking, skating, cycling, mtb" />
-        
+
         <link rel="shortcut icon" href="static/img/map_hiking.ico" />
         <title>route.is</title>
 
-        
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
         <link rel="stylesheet" type="text/css" href="static/css/normalize.css" />
-        
         <link rel="stylesheet" type="text/css" href="static/css/baselayout.css" />
-        
-        <!--[if lt IE 9]><link rel="stylesheet" type="text/css" href="http://s.route.is/css/desktop-ie.css" /><![endif]-->
-        <!--[if (gt IE 8)|(!IE)]-->
-        
         <link rel="stylesheet" type="text/css" media="screen and (max-width:720px)" href="static/css/small.css" />
-        
-        
         <link rel="stylesheet" type="text/css" media="screen and (min-width:721px), print" href="static/css/desktop.css" />
         
-        <!--![endif]-->
         <link rel="stylesheet" type="text/css" href="static/css/hiking_theme.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/jquery.mobile-1.2.0.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/jqm-icon-pack-4b216e9.css" />
         <link rel="stylesheet" type="text/css" href="static/contrib/openlayers/css/default/style.css" />
 
-
     </head>
     
-        <body class="mapbody">
-
-            
-            <div id="map" tabindex="0">JavaScript needs to be activated to use this service.</div>
-            
-            <div id="map_header" class="header headline">
-                <h1><a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_blank');" title="route.is" class="logo"></a></h1>
-                
-
-
-
-
-        <div id="langchooser" class="dropdown header">
-        <span class="ddtitle" onclick="$('#langchooser ul').toggle();" title="Choose language...">EN
-          <!--<img src="http://s.route.is/img/tango-flags.png" alt="" />-->
-        <ul>
-
-                
-                    <li><a class="maplink" href="/ar/">العربية</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ast/">Asturianu</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/az/">Azərbaycanca</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/id/">Bahasa Indonesia</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ms/">Bahasa Melayu</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/br/">Brezhoneg</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/bxr/">Буряад</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ca/">Català</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/cs/">Česky</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/da/">Dansk</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/de/">Deutsch</a></li>
-                
-
-                
-                    <li>English</li>
-                
-
-                
-                    <li><a class="maplink" href="/es/">Español</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/eo/">Esperanto</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/fo/">Føroyskt</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/fr/">Français</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/gl/">Galego</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ko/">한국어</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ia/">Interlingua</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/is/">Íslenska</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/it/">Italiano</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/he/">עברית</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/hu/">Magyar</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/mk/">Македонски</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/nl/">Nederlands</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ja/">日本語</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/nb/">Norsk (bokmål)</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/nn/">Norsk (nynorsk)</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/pfl/">Pälzisch</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/pl/">Polski</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/pt/">Português</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/pt-br/">Português do Brasil</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ksh/">Ripoarisch</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ro/">Română</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/ru/">Русский</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/fi/">Suomi</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/sl/">Slovenščina</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/sr-el/">Serbian</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/sr-ec/">српски</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/sv/">Svenska</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/tl/">Tagalog</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/vi/">Tiếng Việt</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/tly/">толышә зывон</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/tr/">Türkçe</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/uk/">українська</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/vec/">Vèneto</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/diq/">Zazaki</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/zh-cn/">中文(简体)</a></li>
-                
-
-                
-                    <li><a class="maplink" href="/no/"></a></li>
-                
-
-        </ul>
-        </div>
-
-
-                
-
-
-
-
-        <div id="npplogo">
-        </div>
-
-        <div id="tg4nplogo">
-        </div>
-
-
-
-
+    <body class="mapbody">
+
+        
+        <div id="map" tabindex="0">JavaScript needs to be activated to use this service.</div>
+        
+        <div id="map_header" class="header headline">
+            <h1><a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_system');" title="route.is" class="logo"></a></h1>    
+
+            <div id="npplogo">
             </div>
 
-                
-                <div id="map_footer" class="header footline">
-                    
-
-        <!-- <form id="searchform" accept-charset="UTF-8" action="#" onsubmit="return searchTerm(this.searchterm.value)"> -->
-        <form id="searchform" accept-charset="UTF-8" onsubmit="return searchTerm(this.searchterm.value)" action="#">
-            <div>
-                <!--<label for="searchterminput">Search:</label>-->
-                <input type="text" size="30" name="searchterm" id="searchterminput" class="searchterminput" tabindex="1" placeholder="Search" />
-                <input type="submit" name="searchok" class="searchbutton" value="" />
+            <div id="tg4nplogo">
             </div>
-        </form>
 
-                    <div id="map_right_footer" class="absright">
-                        <ul class="footer_menu">
-                            <li class="f_menu_about">
-                                <a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_system');">About this map</a>
-                            </li>
-                            <li class="f_menu_update">
-                                Last update: Oct. 1, 2013, 7:15 p.m.
-                            </li>
-                            <li class="f_menu_info">
-                                Background map © <a href="http://kartverket.no/">Kartverket</a>, route info © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap under ODbL</a>
-                            </li>
-                        </ul>
-                  
-                    </div>
-                </div>    
+        </div>
 
             
-            
+        <div id="map_footer" class="header footline">
+
+            <!-- <form id="searchform" accept-charset="UTF-8" action="#" onsubmit="return searchTerm(this.searchterm.value)"> -->
+            <form id="searchform" accept-charset="UTF-8" onsubmit="return searchTerm(this.searchterm.value)" action="#">
+                <div>
+                    <!--<label for="searchterminput">Search:</label>-->
+                    <input type="text" size="30" name="searchterm" id="searchterminput" class="searchterminput" tabindex="1" placeholder="Search" />
+                    <input type="submit" name="searchok" class="searchbutton" value="" />
+                </div>
+            </form>
+
+            <div id="map_right_footer" class="absright">
+                <ul class="footer_menu">
+                    <li class="f_menu_about">
+                        <a href="javascript:(void)" onClick="window.open(encodeURI('http://test.route.is/nb/help/about'), '_system');">About this map</a>
+                    </li>
+                    <li class="f_menu_update">
+                        Last update: Oct. 1, 2013, 7:15 p.m.
+                    </li>
+                    <li class="f_menu_info">
+                        Background map © <a href="http://kartverket.no/">Kartverket</a>, route info © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap under ODbL</a>
+                    </li>
+                </ul>
+          
+            </div>
+        </div>    
 
 
+        <div id="routeselector"><a class="sidebarsel" href="javascript:openRouteView()">Ruter</a></div>
 
+        <div id="geolocation"><a href="javascript:Osgende.RouteMap.geoLocateUser(false)"></a></div>
+        <div id="geolocationErrorMsg" style="display:none;">Klarer ikke å finne din posisjon!</div>
 
-            
-
-
-
-
-        <div id="routeselector"><a class="sidebarsel" href="javascript:openRouteView()">
-            Ruter</a></div>
-
-
-
-          <div id="sidebar-header" class="sidebar ui-header ui-bar-c ui-shadow invisible">
+        <div id="sidebar-header" class="sidebar ui-header ui-bar-c ui-shadow invisible">
            <a id="sbback" class="ui-btn ui-btn-icon-notext ui-btn-up-c ui-btn-left infobtn" href="#"><span class="ui-btn-inner"><span class="ui-icon ui-icon-back ui-icon-shadow"></span></span></a>
            <h1 id="sbtitle" class="ui-title">
                 
@@ -344,287 +105,282 @@
            </h1>
               <a id="sbsmall" class="ui-btn ui-btn-icon-notext ui-btn-up-c ui-btn-right infobtn" href="#"><span class="ui-btn-inner"><span class="ui-icon ui-icon-arrow-u ui-icon-shadow"></span></span></a>
              <a id="sbclose" class="ui-btn ui-btn-icon-notext ui-btn-up-c ui-btn-right" href="#"><span class="ui-btn-inner"><span class="ui-icon ui-icon-delete ui-icon-shadow"></span></span></a>
-          </div>
+        </div>
 
 
 
         <div id="sidebar" class="sidebar invisible sb-layout-ltr ui-shadow ui-body-c ">
-        <div id="sidebar-content">  
-          <div id="sb-routes" class="sbcontent">
-            
-            <div id="routeloader" class="sbloading">Loading data…</div>
-            <div id="routecontent" class="route-content"></div>
-            <div id="routeinfocontent" class="route-content"></div>
-          </div>
-
-          <div id="sb-search" class="sbcontent">
-            <form class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c" accept-charset="UTF-8" action="#" onsubmit="return searchForWord(this.sbsearchterm.value)">
-             <label for="sbsearchterm" class="ui-hidden-accessible">Search</label>
-             <input id="sbsearchterm" class="ui-input-text ui-body-c" type="text" value="" name="search">
-             <a class="ui-input-clear ui-btn ui-shadow ui-btn-corner-all ui-fullsize ui-btn-icon-notext ui-btn-up-c invisible" title="clear text" href="#">
-               <span class="ui-btn-inner ui-btn-corner-all"><span class="ui-icon ui-icon-delete ui-icon-shadow"> </span></span>
-             </a>
-            </form>
-            <div id="search-results">
-            <h2>Routes</h2>
-               <div id="rsearchcontent" class="searchcontent"></div>
-               <div id="rsearchloader" class="sbloading">Loading data…</div>
-            <h2>Places</h2>
-               <div id="psearchloader" class="sbloading">Loading data…</div>
-               <div id="psearchcontent" class="searchcontent"></div>
-            </div>
-          </div>
-
-          <div id="sb-pref" class="sbcontent">
-            <h2>Map transparency</h2>
-            <div id="mapsliders">
-             <div class="slider"><div class="slider-label">Base map</div>
-               <div class="slider-slider">
-                <div id="basebg" class="sliderbg" tabindex="90"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="basethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
-              </div>
-             </div>
-            <div class="slider"><div class="slider-label">Route layer</div>
-               <div class="slider-slider">
-              <div id="routebg" class="sliderbg" tabindex="91"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="routethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
-              </div>
-            </div>
-            <div class="slider"><div class="slider-label">Hill shading</div>
-               <div class="slider-slider">
-              <div id="hillbg" class="sliderbg" tabindex="92"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" /><div id="hillthumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div></div>
-              </div>
-            </div>
-            </div>
-            <h2>Language</h2>
-            <label for="select-lang" class="ui-hidden-accessible">Language:</label>
-            <select name="select-lang" id="select-lang">
-             
-               <option value="/ar/" >العربية</option>
-             
-               <option value="/ast/" >Asturianu</option>
-             
-               <option value="/az/" >Azərbaycanca</option>
-             
-               <option value="/id/" >Bahasa Indonesia</option>
-             
-               <option value="/ms/" >Bahasa Melayu</option>
-             
-               <option value="/br/" >Brezhoneg</option>
-             
-               <option value="/bxr/" >Буряад</option>
-             
-               <option value="/ca/" >Català</option>
-             
-               <option value="/cs/" >Česky</option>
-             
-               <option value="/da/" >Dansk</option>
-             
-               <option value="/de/" >Deutsch</option>
-             
-               <option value="/en/" selected="selected">English</option>
-             
-               <option value="/es/" >Español</option>
-             
-               <option value="/eo/" >Esperanto</option>
-             
-               <option value="/fo/" >Føroyskt</option>
-             
-               <option value="/fr/" >Français</option>
-             
-               <option value="/gl/" >Galego</option>
-             
-               <option value="/ko/" >한국어</option>
-             
-               <option value="/ia/" >Interlingua</option>
-             
-               <option value="/is/" >Íslenska</option>
-             
-               <option value="/it/" >Italiano</option>
-             
-               <option value="/he/" >עברית</option>
-             
-               <option value="/hu/" >Magyar</option>
-             
-               <option value="/mk/" >Македонски</option>
-             
-               <option value="/nl/" >Nederlands</option>
-             
-               <option value="/ja/" >日本語</option>
-             
-               <option value="/nb/" >Norsk (bokmål)</option>
-             
-               <option value="/nn/" >Norsk (nynorsk)</option>
-             
-               <option value="/pfl/" >Pälzisch</option>
-             
-               <option value="/pl/" >Polski</option>
-             
-               <option value="/pt/" >Português</option>
-             
-               <option value="/pt-br/" >Português do Brasil</option>
-             
-               <option value="/ksh/" >Ripoarisch</option>
-             
-               <option value="/ro/" >Română</option>
-             
-               <option value="/ru/" >Русский</option>
-             
-               <option value="/fi/" >Suomi</option>
-             
-               <option value="/sl/" >Slovenščina</option>
-             
-               <option value="/sr-el/" >Serbian</option>
-             
-               <option value="/sr-ec/" >српски</option>
-             
-               <option value="/sv/" >Svenska</option>
-             
-               <option value="/tl/" >Tagalog</option>
-             
-               <option value="/vi/" >Tiếng Việt</option>
-             
-               <option value="/tly/" >толышә зывон</option>
-             
-               <option value="/tr/" >Türkçe</option>
-             
-               <option value="/uk/" >українська</option>
-             
-               <option value="/vec/" >Vèneto</option>
-             
-               <option value="/diq/" >Zazaki</option>
-             
-               <option value="/zh-cn/" >中文(简体)</option>
-             
-               <option value="/no/" ></option>
-             
-            </select>
-
-
-          </div>
-        </div>
-        </div>
-
-
-            
-
-            <script type="text/javascript" src="static/contrib/jquery-1.8.2.js"></script>
-            <script type="text/javascript" src="static/contrib/slider-min.js"></script>
-            <script type="text/javascript" src="static/contrib/noty-4d8bc69.js"></script>
-            <script type="text/javascript" src="static/contrib/modernizr-120428.js"></script>
-
-            
-                <script type="text/javascript" src="static/contrib/openlayers-130424.js"></script>
-            
-            
-            
-            <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
-            <!--[if IE]><script language="javascript" type="text/javascript" src="static/contrib/excanvas.min.js"></script><![endif]-->
-
+            <div id="sidebar-content">  
+                <div id="sb-routes" class="sbcontent">
                 
-            <script type="text/javascript" src="static/js/Map.js"></script>
+                    <div id="routeloader" class="sbloading">Loading data…</div>
+                    <div id="routecontent" class="route-content"></div>
+                    <div id="routeinfocontent" class="route-content"></div>
+                </div>
 
-            <script type="text/javascript" src="static/js/Sidebar.js"></script>
+                <div id="sb-search" class="sbcontent">
+                    <form class="ui-input-search ui-shadow-inset ui-btn-corner-all ui-btn-shadow ui-icon-searchfield ui-body-c" accept-charset="UTF-8" action="#" onsubmit="return searchForWord(this.sbsearchterm.value)">
+                         <label for="sbsearchterm" class="ui-hidden-accessible">Search</label>
+                         <input id="sbsearchterm" class="ui-input-text ui-body-c" type="text" value="" name="search">
+                         <a class="ui-input-clear ui-btn ui-shadow ui-btn-corner-all ui-fullsize ui-btn-icon-notext ui-btn-up-c invisible" title="clear text" href="#">
+                           <span class="ui-btn-inner ui-btn-corner-all"><span class="ui-icon ui-icon-delete ui-icon-shadow"> </span></span>
+                         </a>
+                    </form>
+                    <div id="search-results">
+                        <h2>Routes</h2>
+                           <div id="rsearchcontent" class="searchcontent"></div>
+                           <div id="rsearchloader" class="sbloading">Loading data…</div>
+                        <h2>Places</h2>
+                           <div id="psearchloader" class="sbloading">Loading data…</div>
+                           <div id="psearchcontent" class="searchcontent"></div>
+                    </div>
+                </div>
 
-            <script type="text/javascript" src="static/js/Routes.js"></script>
+                <div id="sb-pref" class="sbcontent">
 
-            <script type="text/javascript" src="static/js/Search.js"></script>
+                    <h2>Map transparency</h2>
+                    <div id="mapsliders">
+                        <div class="slider"><div class="slider-label">Base map</div>
+                        <div class="slider-slider">
+                            <div id="basebg" class="sliderbg" tabindex="90"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" />
+                                <div id="basethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div>
+                            </div>
+                        </div>
+                    </div>
 
-            <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
+
+                    <div class="slider">
+                        <div class="slider-label">Route layer</div>
+                        <div class="slider-slider">
+                            <div id="routebg" class="sliderbg" tabindex="91"><img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" />
+                                <div id="routethumb" class="sliderthumb"><img src="static/img/thumb-n.gif" alt="|" /></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider">
+                        <div class="slider-label">Hill shading</div>
+                        <div class="slider-slider">
+                            <div id="hillbg" class="sliderbg" tabindex="92">
+                                <img class="sliderbgimg" src="static/img/bg-fader.gif" alt="" />
+                                <div id="hillthumb" class="sliderthumb">
+                                    <img src="static/img/thumb-n.gif" alt="|" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 
+
+                </div>
+
+                <h2>Language</h2>
+                <label for="select-lang" class="ui-hidden-accessible">Language:</label>
+                <select name="select-lang" id="select-lang">
+                 
+                   <option value="/ar/" >العربية</option>
+                 
+                 
+                   <option value="/no/" ></option>
+                 
+                </select>
+
+            </div>
+        </div>
+    </div>
+
+
             
 
-            <!-- internal scripts -->
-            <script type="text/javascript">
-                Osgende.MapConfig = {
-                    basemapurl : 'http://test.route.is/en/',
-                    routeinfo_baseurl :  'http://test.route.is/en/routebrowser/',
-                    routesearchurl : 'http://test.route.is/en/search/route/',
-                    placesearchurl : 'http://test.route.is/en/search/place/',
-                    showroute : -1,
-                    showarea : '-1',
-                    showsearch : '-1',
-                    areasearchurl : 'http://test.route.is/en/search/area/',
-                    firstVisit : 1,
-                    routemap_mediaurl : 'http://s.route.is',
-                    tileurl : 'http://tile.waymarkedtrails.org/hiking',
-                    
-                    ismobile : false
+    <script type="text/javascript" src="static/contrib/jquery-1.8.2.js"></script>
+    <script type="text/javascript" src="static/contrib/slider-min.js"></script>
+    <script type="text/javascript" src="static/contrib/noty-4d8bc69.js"></script>
+    <script type="text/javascript" src="static/contrib/modernizr-120428.js"></script>
+    <script type="text/javascript" src="static/contrib/openlayers-mobile-130424.js"></script>
+    <script language="javascript" type="text/javascript" src="static/contrib/flot-flot-f0e78fc.js"></script>
+    <script type="text/javascript" src="static/js/Map.js"></script>
+    <script type="text/javascript" src="static/js/Sidebar.js"></script>
+    <script type="text/javascript" src="static/js/Routes.js"></script>
+    <script type="text/javascript" src="static/js/Search.js"></script>
+    <script type="text/javascript" src="static/js/ElevationProfile.js"></script>
+    <script type="text/javascript" charset="utf-8" src="cordova.js"></script>
+    <script type="text/javascript" src="js/touche.min.js"></script>
+        
+            
+
+        <!-- internal scripts -->
+        <script type="text/javascript">
+            Osgende.MapConfig = {
+                basemapurl : 'http://test.route.is/en/',
+                routeinfo_baseurl :  'http://test.route.is/en/routebrowser/',
+                routesearchurl : 'http://test.route.is/en/search/route/',
+                placesearchurl : 'http://test.route.is/en/search/place/',
+                showroute : -1,
+                showarea : '-1',
+                showsearch : '-1',
+                areasearchurl : 'http://test.route.is/en/search/area/',
+                firstVisit : 1,
+                routemap_mediaurl : 'http://s.route.is',
+                tileurl : 'http://tile.waymarkedtrails.org/hiking',
+                //extent : 'new OpenLayers.Bounds(653201, 7743571, 3477376, 11216869)',
+                ismobile : true
+            };
+            
+            OpenLayers.ImgPath = "http://s.route.is/contrib/openlayers/img/";
+
+
+            var geolocationWatchId;
+            /* OVERRIDE GEOLOCATION */
+            Osgende.Geolocator = function() {
+
+                var geolocateMap, doZoomAfterGeolocation, geoLocateLayer;
+
+                this.initialize = function(map) {
+                    // Was not able to use this.map=map
+                    geolocateMap = map;
+
+                    geoLocateLayer = new OpenLayers.Layer.Vector('vector');
+                    map.addLayer(geoLocateLayer);
+
+                    this.geoLocateUser = function(shouldZoom) {
+
+                        var options = { enableHighAccuracy: true , timeout: 7000, maximumAge: 0};
+
+                        // Need to wrap this in setTimeout to prevent alerts on iOS
+                        setTimeout( function() {
+                            var geolocationWatchId = navigator.geolocation.getCurrentPosition(Osgende.RouteMap.getGeolocator().locationFound, Osgende.RouteMap.getGeolocator().locationFailed, options);
+                        },1000);
+                        
+
+                        doZoomAfterGeolocation = shouldZoom;
+                        geoLocateLayer.removeAllFeatures();
+                    };
                 };
-                
-                OpenLayers.ImgPath = "http://s.route.is/contrib/openlayers/img/";
 
+                this.locationFound = function(position) {
 
-               
-                
-                oldShowRouteInfo = showRouteInfo;
-                showRouteInfo = function(osmid, backfunc) {
-                    $("#sidebar-header .infobtn").removeClass("invisible");
-                    $('#routeloader').removeClass('invisible');
-                    $('#sb-routes .route-content').addClass('invisible');
-                    $('#sbback').off();
-                    $('#sbback').click(backfunc);
-                    routeviewcounter++;
-                    var sid = routeviewcounter;
-                    $.get(Osgende.MapConfig.routeinfo_baseurl + osmid + '/info',
-                        function (data) {
-                            if (routeviewcounter == sid) {
-                                $('#routeloader').addClass('invisible');
+                    var projWGS84 = new OpenLayers.Projection("EPSG:4326");
+                    var proj900913 = new OpenLayers.Projection("EPSG:900913");
+                    var coordinate = new OpenLayers.LonLat(position.coords.longitude, position.coords.latitude);
+                    coordinate.transform(projWGS84, proj900913);
 
-                                 // CHANGE HREFS DUE TO APP
-                                var externalHTML = $.parseHTML(data);
-                                $('#gpx-download', externalHTML).attr("href", "http://test.route.is/nb/routebrowser/" + osmid + "/gpx");
-                                $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
-                                $('#zoom-link', externalHTML).attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
-                                data = externalHTML;
-                                // DONE: CHANGE HREFS DUE TO APP
+                    geolocateMap.panTo(coordinate);
+                    geolocateMap.zoomTo(9);
 
-                                var div = jQuery("<div>").append(data);
+                    // Add marker to show location
+                    var marker = new OpenLayers.Feature.Vector(
+                        new OpenLayers.Geometry.Point(coordinate.lon, coordinate.lat),
+                        {},
+                        {   externalGraphic: Osgende.MapConfig.routemap_mediaurl + "/contrib/openlayers/img/marker-blue.png",
+                            graphicHeight: 25,
+                            graphicWidth: 21,
+                            graphicXOffset: -21/2,
+                            graphicYOffset: -25
+                         }
+                    );
+                    geoLocateLayer.addFeatures([
+                        marker
+                        ]);
 
-
-                                $('#empty-title').html(div.find('.route-info-header').html());
-                                $('#empty-title').removeClass('invisible');
-
-
-
-                                $('#routeinfocontent').html(div.find('.route-info-content'));
-                                
-                                // Reset header to name of relation
-                                var tmp = $('.route-info-title').html();
-                                $('#empty-title').html(tmp);
-                                
-                                // manipulate headers to make them closable
-                                $('#routeinfocontent h2').each(function (idx) {
-                                    var oldcontent = $(this).html();
-                                    $(this).html('<span class="ui-icon ui-icon-alt"></span><span class="title-text">'+ oldcontent + '</span>');
-                                    if ($(this).hasClass('section-closed')) {
-                                        $('.ui-icon', this).addClass('ui-icon-arrow-r');
-                                        $(this).next().addClass('invisible');
-                                    } else {
-                                        $('.ui-icon', this).addClass('ui-icon-arrow-d');
-                                    }
-                                    $(this).click(routeInfoToggleSection);
-                                });
-                                $('#routeinfocontent').removeClass("invisible");
-                                // Only if elevation profile is turned on
-                                if (typeof createElevationProfile === 'function') {
-                                    createElevationProfile(osmid); 
-                                }
-                                routeLayer.removeAllFeatures();
-                                var styleloader = new OpenLayers.Protocol.HTTP({
-                                        url: Osgende.MapConfig.routeinfo_baseurl + osmid + '/json',
-                                        format: new OpenLayers.Format.GeoJSON(),
-                                        callback: function (response) {
-                                            routeLayer.style = routeLayer.styleMap.styles.single.defaultStyle;
-                                            routeLayer.addFeatures(response.features);
-                                            Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent());
-                                          },
-                                        scope: this
-                                        });
-                                styleloader.read();
-                            }
-                        });
+                    if (geolocateMap.getZoom() < 9) {
+                        geolocateMap.zoomTo(9); // Only zoom on when opening page
+                        Osgende.RouteMap.updateLocation(); // Call manually since this is done before event is set up
                     }
 
 
-            </script>
-        </body>
+                };
+
+                this.locationFailed = function() {
+                    noty({text: $('#geolocationErrorMsg').text(), timeout: 3000, type: 'error'});
+                    navigator.geolocation.clearWatch(geolocationWatchId)
+                };
+
+            };
+           
+            var gpxLink;
+            oldShowRouteInfo = showRouteInfo;
+            showRouteInfo = function(osmid, backfunc) {
+                $("#sidebar-header .infobtn").removeClass("invisible");
+                $('#routeloader').removeClass('invisible');
+                $('#sb-routes .route-content').addClass('invisible');
+                $('#sbback').off();
+                $('#sbback').click(backfunc);
+                routeviewcounter++;
+                var sid = routeviewcounter;
+                $.get(Osgende.MapConfig.routeinfo_baseurl + osmid + '/info',
+                    function (data) {
+                        if (routeviewcounter == sid) {
+                            $('#routeloader').addClass('invisible');
+
+                             // CHANGE HREFS DUE TO APP
+                            var externalHTML = $.parseHTML(data);
+                            $('#gpx-download', externalHTML).attr("href", "javascript:void(0)");
+                            gpxLink = 'http://test.route.is/nb/routebrowser/' + osmid + '/gpx';
+                            $('#gpx-download', externalHTML).attr("onClick", "window.open(gpxLink, '_system', 'hidden=no')");
+                            $('#zoom-link', externalHTML).attr("href", "javascript:void(0)");
+                            $('#zoom-link', externalHTML).attr("onClick", "Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent())");
+                            data = externalHTML;
+                            // DONE: CHANGE HREFS DUE TO APP
+
+                            var div = jQuery("<div>").append(data);
+
+
+                            $('#empty-title').html(div.find('.route-info-header').html());
+                            $('#empty-title').removeClass('invisible');
+
+
+
+                            $('#routeinfocontent').html(div.find('.route-info-content'));
+                            
+                            // Reset header to name of relation
+                            var tmp = $('.route-info-title').html();
+                            $('#empty-title').html(tmp);
+                            
+                            // manipulate headers to make them closable
+                            $('#routeinfocontent h2').each(function (idx) {
+                                var oldcontent = $(this).html();
+                                $(this).html('<span class="ui-icon ui-icon-alt"></span><span class="title-text">'+ oldcontent + '</span>');
+                                if ($(this).hasClass('section-closed')) {
+                                    $('.ui-icon', this).addClass('ui-icon-arrow-r');
+                                    $(this).next().addClass('invisible');
+                                } else {
+                                    $('.ui-icon', this).addClass('ui-icon-arrow-d');
+                                }
+                                $(this).click(routeInfoToggleSection);
+                            });
+                            $('#routeinfocontent').removeClass("invisible");
+                            // Only if elevation profile is turned on
+                            if (typeof createElevationProfile === 'function') {
+                                createElevationProfile(osmid); 
+                            }
+                            routeLayer.removeAllFeatures();
+                            var styleloader = new OpenLayers.Protocol.HTTP({
+                                    url: Osgende.MapConfig.routeinfo_baseurl + osmid + '/json',
+                                    format: new OpenLayers.Format.GeoJSON(),
+                                    callback: function (response) {
+                                        routeLayer.style = routeLayer.styleMap.styles.single.defaultStyle;
+                                        routeLayer.addFeatures(response.features);
+                                        Osgende.RouteMap.map.zoomToExtent(routeLayer.getDataExtent());
+                                      },
+                                    scope: this
+                                    });
+                            styleloader.read();
+                        }
+                    });
+                }
+
+                document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady() {
+                
+                    // Change CSS on iOS6
+                    var iosVersion = device.version.substring(0,1);
+                    if(device.platform=="iOS" && iosVersion=="6") {
+                        $('#routeselector').css("bottom", "20px");
+                  
+                    }
+                }
+
+
+        </script>
+
+    </body>
 </html>

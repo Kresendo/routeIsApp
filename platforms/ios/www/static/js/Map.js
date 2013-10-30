@@ -308,7 +308,7 @@ Osgende.RouteMap = {
                 }
             }
             if (firstvisit) {
-                this.map.setCenter([950000,6000000], 4);
+                this.map.setCenter([9711900,1245196], 4);
                 if (this.geolocator)
                     this.geolocator.geoLocateUser(true);
             }
@@ -443,7 +443,12 @@ Osgende.RouteMap = {
 
     geoLocateUser : function (dozoom) {
         this.geolocator.geoLocateUser(dozoom);
+    },
+
+    getGeolocator : function () {
+        return this.geolocator;
     }
+
 
 };
 

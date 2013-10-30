@@ -12,9 +12,14 @@
     <access origin="http://test.route.is/*" />
     <access origin="http://opencache.statkart.no/*" />
     <access origin="http://tile.waymarkedtrails.org/*" />
+    <access origin="http://debug.phonegap.com/*" />
+    <access origin="http://nominatim.openstreetmap.org/*" />
     <preference name="fullscreen" value="true" />
     <preference name="webviewbounce" value="true" />
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
     </feature>
 </widget>
